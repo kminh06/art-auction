@@ -48,7 +48,7 @@ export function HomePage({ artworks, isSignedIn, user }) {
                     <div>
                       <QRCode
                         className='h-10 w-10'
-                        value={`/item/${artwork.id}`}
+                        value={`https://cish-art-auction.vercel.app/item/${artwork.id}`}
                       />
                     </div>
                   </div>
