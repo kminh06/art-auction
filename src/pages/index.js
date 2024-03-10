@@ -9,9 +9,7 @@ export default function Home() {
       <Head>
         <title>Concordia Art Auction 2024</title>
       </Head>
-      <main className=''>
-        <BidPage currentBid={1500000} />
-      </main>
+      <main className=''></main>
     </>
   )
 }

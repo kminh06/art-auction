@@ -16,6 +16,16 @@ export function BidPage({ artData, artwork, user, isSignedIn }) {
     await signOut(auth)
   }
 
+  useEffect(() => {
+    if (
+      isSignedIn &&
+      artData.highest_bid &&
+      artData['bid' + artData.bids_count].bidder.id === user.id
+    ) {
+      setBid(artData.highest_bid + 100000)
+    }
+  }, [artData.highest_bid])
+
   return (
     <div className='w-full max-w-xl mx-auto'>
       <div className='p-4 md:p-6'>
@@ -45,31 +55,38 @@ export function BidPage({ artData, artwork, user, isSignedIn }) {
           <div className='flex items-center justify-between'>
             <div className='grid gap-1'>
               <h3 className='text-xl font-bold sm:text-2xl'>{artwork.name}</h3>
-              <p className='text-sm font-medium leading-none text-gray-500 dark:text-gray-400'>
+              <p className='text-sm font-medium leading-none text-gray-500'>
                 by {artwork.artist}
               </p>
             </div>
-            {artData.highest_bid ? (
+            <div>
               <div className='text-2xl font-semibold'>
                 ₫{artData.highest_bid.toLocaleString('en-US')}
               </div>
-            ) : (
-              <div className='text-2xl font-semibold'>Loading ...</div>
-            )}
+              <p className='text-sm text-right text-gray-500'>
+                [{artData.bids_count} bids]
+              </p>
+            </div>
           </div>
           <div className='grid gap-4'>
             <img
               alt='Artwork'
               className='aspect-[2/1] rounded-lg object-cover border border-gray-200 w-full'
               height={200}
-              src='/placeholder.svg'
+              src={artwork.image_url}
               width={400}
             />
             <form className='grid gap-4' onSubmit={(e) => e.preventDefault()}>
               <div className='grid gap-1'>
                 <Label className='text-sm' htmlFor='bid'>
-                  Your Bid
+                  Your Bid (₫)
                 </Label>
+                {user?.email ===
+                  artData['bid' + artData.bids_count].bidder.email && (
+                  <span className='text-sm text-gray-500'>
+                    You're currently the highest bid!
+                  </span>
+                )}
                 <div className='flex flex-row gap-2 items-center'>
                   <button
                     className='p-2 w-full min-w-12 border border-gray-200 rounded-md disabled:invisible'

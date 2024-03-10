@@ -25,8 +25,11 @@ export default function BidButton({ user, artwork, bid, isSignedIn, artData }) {
       bids_count: artData.bids_count + 1,
       [`bid${artData.bids_count + 1}`]: {
         amount: bid,
-        bidder_id: user.id,
-        bidder_name: user.name,
+        bidder: {
+          id: user.id,
+          name: user.name,
+          email: user.email,
+        },
         time: Date.now(),
       },
     })
