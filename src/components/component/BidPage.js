@@ -1,11 +1,9 @@
 import { Label } from '@/components/ui/label'
-import { Input } from '@/components/ui/input'
 import { useEffect, useState } from 'react'
-import LoginForm from './LoginForm'
 import BidButton from './BidButton'
-import { Button } from '../ui/button'
 import { signOut } from 'firebase/auth'
 import { auth } from '@/firebase'
+import Header from './Header'
 
 export function BidPage({ artData, artwork, user, isSignedIn }) {
   const [bid, setBid] = useState(artData.highest_bid + 100000)
@@ -30,28 +28,7 @@ export function BidPage({ artData, artwork, user, isSignedIn }) {
     <div className='w-full max-w-xl mx-auto'>
       <div className='p-4 md:p-6'>
         <div className='grid gap-4'>
-          <div className='grid gap-1 mb-2 relative'>
-            <h4 className='font-bold text-sm text-center'>Auction Ends In</h4>
-            <div className='flex items-center gap-2 justify-center'>
-              <div className='font-semibold text-red-500 text-lg'>02:30:45</div>
-            </div>
-            <div className='absolute right-0'>
-              {isSignedIn ? (
-                <Button size='sm' variant='outline' onClick={handleSignOut}>
-                  Logout
-                </Button>
-              ) : (
-                <LoginForm>
-                  <span className='inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-950 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-9 px-3 border border-input bg-background hover:bg-gray-50/90 hover:text-accent-foreground'>
-                    Login
-                  </span>
-                </LoginForm>
-              )}
-            </div>
-            <div className='absolute left-0'>
-              <img src={'/logo.png'} height={36} width={36} />
-            </div>
-          </div>
+          <Header isSignedIn={isSignedIn} user={user} />
           <div className='flex items-center justify-between'>
             <div className='grid gap-1'>
               <h3 className='text-xl font-bold sm:text-2xl'>{artwork.name}</h3>
