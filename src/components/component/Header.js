@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import LoginForm from './LoginForm'
 import { Button } from '../ui/button'
 import { signOut } from 'firebase/auth'
 import { auth } from '@/firebase'
 import Link from 'next/link'
+import Countdown from 'react-countdown'
 
 export default function Header({ isSignedIn, user }) {
   async function handleSignOut(e) {
@@ -11,11 +12,24 @@ export default function Header({ isSignedIn, user }) {
     await signOut(auth)
   }
 
+  const [isClient, setIsClient] = useState(false)
+
+  useEffect(() => {
+    setIsClient(true)
+  }, [])
+
   return (
     <div className='grid gap-1 mb-2 relative'>
       <h4 className='font-bold text-sm text-center'>Auction Ends In</h4>
       <div className='flex items-center gap-2 justify-center'>
-        <div className='font-semibold text-red-500 text-lg'>02:30:45</div>
+        <div className='font-semibold text-red-500 text-lg'>
+          {/* 02:30:45 */}
+          {isClient ? (
+            <Countdown date={'2024-03-19T00:00:00'} />
+          ) : (
+            '00:00:00:00'
+          )}
+        </div>
       </div>
       <div className='absolute right-0'>
         {isSignedIn ? (
