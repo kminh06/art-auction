@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
   Dialog,
   DialogContent,
@@ -10,15 +10,30 @@ import {
 import { Label } from '@/components/ui/label'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
+import { auth, db } from '@/firebase'
+import { signInAnonymously } from 'firebase/auth'
+import { doc, setDoc } from 'firebase/firestore'
 
-export default function LoginForm() {
+export default function LoginForm({ children }) {
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+
+  async function handleSignIn(e) {
+    e.preventDefault()
+
+    const cred = await signInAnonymously(auth)
+    const user = cred.user
+    console.log(user)
+
+    await setDoc(doc(db, 'users', user.uid), {
+      name,
+      email,
+    })
+  }
+
   return (
     <Dialog>
-      <DialogTrigger>
-        <span className='inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-950 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-9 px-3 border border-input bg-background hover:bg-gray-50/90 hover:text-accent-foreground'>
-          Login
-        </span>
-      </DialogTrigger>
+      <DialogTrigger>{children}</DialogTrigger>
       <DialogContent>
         <DialogHeader>
           <DialogTitle>Sign up for Concordia Art Auction</DialogTitle>
@@ -31,18 +46,31 @@ export default function LoginForm() {
             <p className='mt-4'>
               Please enter your <b>full name</b> to let us know who's bidding!
             </p>
-            <form className='mt-6 grid gap-4'>
+            <form className='mt-6 grid gap-4' onSubmit={handleSignIn}>
               <div className='grid gap-1'>
                 <Label className='text-sm text-gray-950' htmlFor='name'>
                   Full Name
                 </Label>
-                <Input required id='name' placeholder='Full Name' />
+                <Input
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  required
+                  id='name'
+                  placeholder='Full Name'
+                />
               </div>
               <div className='grid gap-1'>
                 <Label className='text-sm text-gray-950' htmlFor='email'>
                   Email
                 </Label>
-                <Input required id='email' placeholder='Email' type='email' />
+                <Input
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                  id='email'
+                  placeholder='Email'
+                  type='email'
+                />
               </div>
               <div className='mt-4'>
                 <Button
