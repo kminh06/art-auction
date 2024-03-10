@@ -1,14 +1,14 @@
 import { Label } from '@/components/ui/label'
 import { Input } from '@/components/ui/input'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import LoginForm from './LoginForm'
 import BidButton from './BidButton'
 import { Button } from '../ui/button'
 import { signOut } from 'firebase/auth'
 import { auth } from '@/firebase'
 
-export function BidPage({ currentBid, artwork, user, isSignedIn }) {
-  const [bid, setBid] = useState(currentBid + 100000)
+export function BidPage({ artData, artwork, user, isSignedIn }) {
+  const [bid, setBid] = useState(artData.highest_bid + 100000)
   console.log(user, isSignedIn)
 
   async function handleSignOut(e) {
@@ -49,9 +49,13 @@ export function BidPage({ currentBid, artwork, user, isSignedIn }) {
                 by {artwork.artist}
               </p>
             </div>
-            <div className='text-2xl font-semibold'>
-              ₫{currentBid.toLocaleString('en-US')}
-            </div>
+            {artData.highest_bid ? (
+              <div className='text-2xl font-semibold'>
+                ₫{artData.highest_bid.toLocaleString('en-US')}
+              </div>
+            ) : (
+              <div className='text-2xl font-semibold'>Loading ...</div>
+            )}
           </div>
           <div className='grid gap-4'>
             <img
@@ -66,22 +70,43 @@ export function BidPage({ currentBid, artwork, user, isSignedIn }) {
                 <Label className='text-sm' htmlFor='bid'>
                   Your Bid
                 </Label>
-                <Input
-                  id='bid'
-                  type='number'
-                  min={currentBid + 100000}
-                  placeholder='Enter your bid'
-                  value={bid}
-                  onChange={(e) => {
-                    setBid(e.target.vaclue)
-                  }}
-                />
+                <div className='flex flex-row gap-2 items-center'>
+                  <button
+                    className='p-2 w-full min-w-12 border border-gray-200 rounded-md disabled:invisible'
+                    disabled={bid <= artData.highest_bid + 100000}
+                    type='button'
+                    onClick={(e) => {
+                      e.preventDefault()
+                      setBid(bid - 100000)
+                    }}
+                  >
+                    -
+                  </button>
+                  <input
+                    className='w-full min-w-40 text-center'
+                    id='bid'
+                    min={artData.highest_bid + 100000}
+                    placeholder='Enter your bid'
+                    value={bid.toLocaleString('en-US')}
+                  />
+                  <button
+                    className='p-2 w-full min-w-12 border border-gray-200 rounded-md'
+                    type='button'
+                    onClick={(e) => {
+                      e.preventDefault()
+                      setBid(bid + 100000)
+                    }}
+                  >
+                    +
+                  </button>
+                </div>
               </div>
               <BidButton
                 isSignedIn={isSignedIn}
-                user={user?.name}
+                user={user}
                 bid={bid}
-                artName={artwork.name}
+                artData={artData}
+                artwork={artwork}
               />
             </form>
           </div>
