@@ -14,7 +14,7 @@ import { auth, db } from '@/firebase'
 import { signInAnonymously } from 'firebase/auth'
 import { doc, setDoc } from 'firebase/firestore'
 
-export default function LoginForm({ children }) {
+export default function LoginForm({ children, live }) {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
 
@@ -79,7 +79,7 @@ export default function LoginForm({ children }) {
                   variant='default'
                   className='w-full'
                 >
-                  Sign up
+                  Authenticate
                 </Button>
               </div>
             </form>

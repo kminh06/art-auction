@@ -1,24 +1,18 @@
 import { Label } from '@/components/ui/label'
 import { useEffect, useState } from 'react'
 import BidButton from './BidButton'
-import { signOut } from 'firebase/auth'
-import { auth } from '@/firebase'
 import Header from './Header'
 
-export function BidPage({ artData, artwork, user, isSignedIn }) {
+export function BidPage({ artData, artwork, user, isSignedIn, live }) {
   const [bid, setBid] = useState(artData.highest_bid + 100000)
   console.log(user, isSignedIn)
 
-  async function handleSignOut(e) {
-    e.preventDefault()
-    await signOut(auth)
-  }
-
   useEffect(() => {
+    // only update bid input if user is the highest bidder, otherwise don't interupt
     if (
       isSignedIn &&
       artData.highest_bid &&
-      artData['bid' + artData.bids_count].bidder.id === user.id
+      artData['bid' + artData.bids_count].bidder?.id === user?.id
     ) {
       setBid(artData.highest_bid + 100000)
     }
@@ -28,7 +22,7 @@ export function BidPage({ artData, artwork, user, isSignedIn }) {
     <div className='w-full max-w-xl mx-auto'>
       <div className='p-4 md:p-6'>
         <div className='grid gap-4'>
-          <Header isSignedIn={isSignedIn} user={user} />
+          <Header isSignedIn={isSignedIn} user={user} live={live} />
           <div className='flex items-center justify-between'>
             <div className='grid gap-1'>
               <h3 className='text-xl font-bold sm:text-2xl'>{artwork.name}</h3>
@@ -48,21 +42,25 @@ export function BidPage({ artData, artwork, user, isSignedIn }) {
           <div className='grid gap-4'>
             <img
               alt='Artwork'
-              className='aspect-[2/1] rounded-lg object-cover border border-gray-200 w-full'
-              height={200}
+              className='aspect-[4/3] rounded-lg object-cover border border-gray-200 w-full'
+              height={300}
               src={artwork.image_url}
               width={400}
+              crossorigin='anonymous'
             />
             <form className='grid gap-4' onSubmit={(e) => e.preventDefault()}>
-              <div className='grid gap-1'>
+              <div className={'grid gap-1 ' + (!live && 'hidden')}>
                 <Label className='text-sm' htmlFor='bid'>
                   Your Bid (₫)
                 </Label>
                 {user?.email ===
-                  artData['bid' + artData.bids_count].bidder.email && (
+                  artData['bid' + artData.bids_count].bidder?.email &&
+                artData['bid' + artData.bids_count].bidder?.email ? (
                   <span className='text-sm text-gray-500'>
                     You're currently the highest bid!
                   </span>
+                ) : (
+                  <></>
                 )}
                 <div className='flex flex-row gap-2 items-center'>
                   <button
@@ -95,13 +93,24 @@ export function BidPage({ artData, artwork, user, isSignedIn }) {
                   </button>
                 </div>
               </div>
-              <BidButton
-                isSignedIn={isSignedIn}
-                user={user}
-                bid={bid}
-                artData={artData}
-                artwork={artwork}
-              />
+              {live ? (
+                <BidButton
+                  isSignedIn={isSignedIn}
+                  user={user}
+                  bid={bid}
+                  artData={artData}
+                  artwork={artwork}
+                  live={live}
+                />
+              ) : (
+                <span
+                  className={
+                    'w-full inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-950 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-gray-950 text-white hover:bg-gray-900/90 h-10 px-4 py-2 opacity-40 cursor-not-allowed'
+                  }
+                >
+                  Auction Ended
+                </span>
+              )}
             </form>
           </div>
           <div className='grid gap-2 my-4'>
@@ -110,10 +119,15 @@ export function BidPage({ artData, artwork, user, isSignedIn }) {
               {artwork.description}
             </p>
           </div>
-          <div className='grid gap-2'>
-            <h4 className='font-bold'>Artist Details</h4>
-            <p className='text-sm leading-relaxed md:text-base'>
-              {artwork.artist_details}
+          <div className='grid gap-2 border-x-2 text-gray-500 border-gray-300 px-6'>
+            <p className='font-medium leading-relaxed text-base'>
+              "Your participation is invaluable in supporting our mission to
+              create a nurturing educational environment for the children of Phu
+              Mau. We deeply appreciate your involvement in this meaningful
+              endeavor."
+            </p>
+            <p className='text-right leading-relaxed text-base'>
+              - Son La Building Hope Team
             </p>
           </div>
         </div>

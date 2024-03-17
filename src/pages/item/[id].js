@@ -41,6 +41,19 @@ export async function getStaticPaths() {
           bids_count: 0,
         })
       }
+
+      // batch.set(doc(db, 'artworks', artwork.id), {
+      //   name: artwork.name,
+      //   artist: artwork.artist,
+      //   image: artwork.image_url,
+      //   bid0: {
+      //     amount: artwork.starting_bid,
+      //     user: null,
+      //     time: Date.now(),
+      //   },
+      //   highest_bid: artwork.starting_bid,
+      //   bids_count: 0,
+      // })
     })
 
     await batch.commit()
@@ -73,6 +86,7 @@ export default function Page({ artwork }) {
   const [isSignedIn, setIsSignedIn] = useState(false)
   const [user, setUser] = useState(null)
   const [artData, setArtData] = useState()
+  const [live, setLive] = useState(true)
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
@@ -94,6 +108,10 @@ export default function Page({ artwork }) {
       console.log('Current data: ', doc.data())
       setArtData({ ...doc.data(), id: doc.id })
     })
+
+    onSnapshot(doc(db, 'auction', 'current'), (doc) => {
+      setLive(doc.data().live)
+    })
   }, [])
 
   return (
@@ -108,6 +126,7 @@ export default function Page({ artwork }) {
             artData={artData}
             artwork={artwork}
             user={user}
+            live={live}
           />
         )}
       </main>

@@ -1,19 +1,22 @@
 import Link from 'next/link'
 import Header from './Header'
 import QRCode from 'react-qr-code'
+import Footer from './Footer'
 
-export function HomePage({ artworks, isSignedIn, user }) {
+export function HomePage({ artworks, isSignedIn, user, live }) {
   return (
     <div className='w-full max-w-xl mx-auto'>
       <div className='p-4 md:p-6'>
         <div className='grid gap-4'>
-          <Header isSignedIn={isSignedIn} user={user} />
-          <div className='text-center flex flex-col gap-2 mb-4'>
-            <h1 className='text-3xl font-bold'>Concordia Art Auction 2024</h1>
+          <Header live={live} isSignedIn={isSignedIn} user={user} />
+          <div className='text-center flex flex-col gap-4 mb-4'>
+            <h1 className='text-3xl font-bold'>
+              Son La Building Hope Art Auction 2024
+            </h1>
             <p className='text-sm text-gray-500'>
-              Welcome to the 2024 Concordia Art Auction! We're excited to
-              present our collection of art pieces from Concordia Hanoi student
-              artists.
+              Welcome to the 2024 Son La Building Hope Art Auction! We're
+              thrilled to showcase an inspiring collection of artworks
+              contributed by our students, parents, and talented local artists.
             </p>
           </div>
           <div>
@@ -54,8 +57,9 @@ export function HomePage({ artworks, isSignedIn, user }) {
                   </div>
                   <img
                     alt='Artwork'
-                    className='aspect-[2/1] rounded-lg object-cover border border-gray-200 w-full'
-                    height={200}
+                    crossorigin='anonymous'
+                    className='aspect-[4/3] rounded-lg object-cover border border-gray-200 w-full'
+                    height={300}
                     src={artwork.image_url}
                     width={400}
                   />
@@ -64,6 +68,7 @@ export function HomePage({ artworks, isSignedIn, user }) {
             </div>
           </div>
         </div>
+        <Footer />
       </div>
     </div>
   )

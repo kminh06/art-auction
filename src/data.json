@@ -1,13 +1,173 @@
-﻿{
+{
   "artworks": [
     {
-      "name": "Dummy",
-      "id": "dummy",
-      "artist": "Dummy",
-      "image_url": "https://images.joseartgallery.com/100736/what-kind-of-art-is-popular-right-now.jpg",
-      "starting_bid": "1500000",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-      "artist_details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+      "id": "mm1",
+      "name": "The Future",
+      "artist": "Nguyen Dai Thu",
+      "starting_bid": 1000000,
+      "description": "Mix media",
+      "image_url": "https://lh3.googleusercontent.com/d/1x3YVm3ViFzseMXIXa6iT5w4hPrB6-F0U",
+      "google_drive_url": "https://drive.google.com/file/d/1x3YVm3ViFzseMXIXa6iT5w4hPrB6-F0U/view?usp=sharing"
+    },
+    {
+      "id": "a1",
+      "name": "Santorini",
+      "artist": "Vu Cam Ngoc",
+      "starting_bid": 1000000,
+      "description": "Acrylic",
+      "image_url": "https://lh3.googleusercontent.com/d/1u7l0hCtOOmInVv8-DlBNcQzFz-uYC0Sx",
+      "google_drive_url": "https://drive.google.com/file/d/1u7l0hCtOOmInVv8-DlBNcQzFz-uYC0Sx/view?usp=sharing "
+    },
+    {
+      "id": "dp1",
+      "name": "Anhedonia",
+      "artist": "Hyo Lynn Yi",
+      "starting_bid": 1000000,
+      "description": "Digital photography",
+      "image_url": "https://lh3.googleusercontent.com/d/1qgAaZ8cuoyL2ioxNBalWM3a9KqTa3KlL",
+      "google_drive_url": "https://drive.google.com/file/d/1qgAaZ8cuoyL2ioxNBalWM3a9KqTa3KlL/view?usp=sharing"
+    },
+    {
+      "id": "a2",
+      "name": "Above the Water",
+      "artist": "\nGomyeongjin Lee ",
+      "starting_bid": 1000000,
+      "description": "Acrylic",
+      "image_url": "https://lh3.googleusercontent.com/d/1pr4XTiN0J9jUP0goiwMtMbMoQbhivXby",
+      "google_drive_url": "https://drive.google.com/file/d/1pr4XTiN0J9jUP0goiwMtMbMoQbhivXby/view?usp=sharing"
+    },
+    {
+      "id": "a3",
+      "name": "Untitled",
+      "artist": "Luu San San",
+      "starting_bid": 1000000,
+      "description": "Acrylic",
+      "image_url": "https://lh3.googleusercontent.com/d/17BFaP00uaj1APSHZBBFAnPfYqQb1oR90",
+      "google_drive_url": "https://drive.google.com/file/d/17BFaP00uaj1APSHZBBFAnPfYqQb1oR90/view?usp=sharing"
+    },
+    {
+      "id": "a4",
+      "name": "A trip in the forest",
+      "artist": "Dang Vy Le",
+      "starting_bid": 1000000,
+      "description": "Acrylic",
+      "image_url": "https://lh3.googleusercontent.com/d/1kXl28IYaKBKF-S9pD1IxcYvRiRxxHRMp",
+      "google_drive_url": "https://drive.google.com/file/d/1kXl28IYaKBKF-S9pD1IxcYvRiRxxHRMp/view?usp=sharing"
+    },
+    {
+      "id": "a5",
+      "name": "Easy Breeze",
+      "artist": "Do Bich Ngoc (Kate)",
+      "starting_bid": 1000000,
+      "description": "Acrylic",
+      "image_url": "https://lh3.googleusercontent.com/d/1T30E3i-MQIiKMz5WfLrMUsOl7zsf9-Jj",
+      "google_drive_url": "https://drive.google.com/file/d/1T30E3i-MQIiKMz5WfLrMUsOl7zsf9-Jj/view?usp=sharing"
+    },
+    {
+      "id": "a6",
+      "name": "Cezanne Self Portrait",
+      "artist": "Ngoc Nguyen",
+      "starting_bid": 1000000,
+      "description": "Acrylic",
+      "image_url": "https://lh3.googleusercontent.com/d/1Q5zab0tuoQNE01rCj4BQYiPxPRVwGiId",
+      "google_drive_url": "https://drive.google.com/file/d/1Q5zab0tuoQNE01rCj4BQYiPxPRVwGiId/view?usp=sharing"
+    },
+    {
+      "id": "a7",
+      "name": "Winter Sonata",
+      "artist": "Ella Ngo",
+      "starting_bid": 1000000,
+      "description": "Acrylic",
+      "image_url": "https://lh3.googleusercontent.com/d/1Ys_tWdK-nCWJtKN03SA5HhxVfO06qfeZ",
+      "google_drive_url": "https://drive.google.com/file/d/1Ys_tWdK-nCWJtKN03SA5HhxVfO06qfeZ/view?usp=sharing "
+    },
+    {
+      "id": "a8",
+      "name": "Dark  Beauty ",
+      "artist": "Lan Nguyen",
+      "starting_bid": 1000000,
+      "description": "Acrylic",
+      "image_url": "https://lh3.googleusercontent.com/d/1YAKmbwaQvhP65qbJgHyC0pl6naZH16EQ",
+      "google_drive_url": "https://drive.google.com/file/d/1YAKmbwaQvhP65qbJgHyC0pl6naZH16EQ/view?usp=sharing"
+    },
+    {
+      "id": "dp2",
+      "name": "White Lotus ",
+      "artist": "Ms. Nguyen Huong Giang",
+      "starting_bid": 1000000,
+      "description": "Digital photography",
+      "image_url": "https://lh3.googleusercontent.com/d/1KsZ2mu63ZrX3nloZvBZvCAoCRjsIpSxk",
+      "google_drive_url": "https://drive.google.com/file/d/1KsZ2mu63ZrX3nloZvBZvCAoCRjsIpSxk/view?usp=sharing"
+    },
+    {
+      "id": "dp3",
+      "name": "White Lotus 2",
+      "artist": "Ms. Nguyen Huong Giang",
+      "starting_bid": 1000000,
+      "description": "Digital photography",
+      "image_url": "https://lh3.googleusercontent.com/d/1FDJiHlYWE8mnweQSH6dY3_5915llIHGJ",
+      "google_drive_url": "https://drive.google.com/file/d/1FDJiHlYWE8mnweQSH6dY3_5915llIHGJ/view?usp=sharing"
+    },
+    {
+      "id": "cp1",
+      "name": "Whisper",
+      "artist": "Lan Nguyen",
+      "starting_bid": 500000,
+      "description": "Chalk Pastel",
+      "image_url": "#VALUE!"
+    },
+    {
+      "id": "a9",
+      "name": "Home",
+      "artist": "Nhat Ha",
+      "starting_bid": 1000000,
+      "description": "Acrylic",
+      "image_url": "#VALUE!"
+    },
+    {
+      "id": "gs1",
+      "name": "Cow and Calf",
+      "artist": "Pham Viet Hong Lam",
+      "starting_bid": 10000000,
+      "description": "Gouache on silk",
+      "image_url": "https://lh3.googleusercontent.com/d/1VldZaL-2D3l4UaY2UYhEZopoaw1B9lRO",
+      "google_drive_url": "https://drive.google.com/file/d/1VldZaL-2D3l4UaY2UYhEZopoaw1B9lRO/view?usp=drive_link"
+    },
+    {
+      "id": "wp1",
+      "name": "Untitled",
+      "artist": "Nguyen Van Cuong",
+      "starting_bid": 7000000,
+      "description": "Wood print",
+      "image_url": "https://lh3.googleusercontent.com/d/1WUyydtzMjBf4ZJ8lCN4Uvj53M0ryxqpv",
+      "google_drive_url": "https://drive.google.com/file/d/1WUyydtzMjBf4ZJ8lCN4Uvj53M0ryxqpv/view?usp=drive_link"
+    },
+    {
+      "id": "dp4",
+      "name": "Make-Believe",
+      "artist": "Hyo Lynn Yi",
+      "starting_bid": 1000000,
+      "description": "Digital photography",
+      "image_url": "https://lh3.googleusercontent.com/d/1dnJpNZ_bUVF5syL3ccfLBdgE29ASSGr2",
+      "google_drive_url": "https://drive.google.com/file/d/1dnJpNZ_bUVF5syL3ccfLBdgE29ASSGr2/view?usp=sharing"
+    },
+    {
+      "id": "dp5",
+      "name": "Disenchanted",
+      "artist": "Hyo Lynn Yi",
+      "starting_bid": 1000000,
+      "description": "Digital photography",
+      "image_url": "https://lh3.googleusercontent.com/d/1-kZbLawNBXLidxbbdKXTE_ppYJ4I1tky",
+      "google_drive_url": "https://drive.google.com/file/d/1-kZbLawNBXLidxbbdKXTE_ppYJ4I1tky/view?usp=sharing"
+    },
+    {
+      "id": "dp6",
+      "name": "Paradise (Paradox)",
+      "artist": "Hyo Lynn Yi",
+      "starting_bid": 1000000,
+      "description": "Digital photography",
+      "image_url": "https://lh3.googleusercontent.com/d/1lGkhVfHv3_A3tSS-maElzkCOpBiQ30ql",
+      "google_drive_url": "https://drive.google.com/file/d/1lGkhVfHv3_A3tSS-maElzkCOpBiQ30ql/view?usp=sharing"
     }
   ]
 }

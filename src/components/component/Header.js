@@ -6,7 +6,7 @@ import { auth } from '@/firebase'
 import Link from 'next/link'
 import Countdown from 'react-countdown'
 
-export default function Header({ isSignedIn, user }) {
+export default function Header({ isSignedIn, user, live }) {
   async function handleSignOut(e) {
     e.preventDefault()
     await signOut(auth)
@@ -23,9 +23,8 @@ export default function Header({ isSignedIn, user }) {
       <h4 className='font-bold text-sm text-center'>Auction Ends In</h4>
       <div className='flex items-center gap-2 justify-center'>
         <div className='font-semibold text-red-500 text-lg'>
-          {/* 02:30:45 */}
-          {isClient ? (
-            <Countdown date={'2024-03-19T00:00:00'} />
+          {isClient && live ? (
+            <Countdown date={'2024-03-20T12:00:00'} />
           ) : (
             '00:00:00:00'
           )}

@@ -65,7 +65,11 @@ export default function BidButton({ user, artwork, bid, isSignedIn, artData }) {
     </AlertDialog>
   ) : (
     <LoginForm>
-      <span className='w-full inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-950 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-gray-950 text-white hover:bg-gray-900/90 h-10 px-4 py-2'>
+      <span
+        className={
+          'w-full inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-950 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-gray-950 text-white hover:bg-gray-900/90 h-10 px-4 py-2'
+        }
+      >
         Place Bid
       </span>
     </LoginForm>
