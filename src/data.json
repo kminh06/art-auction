@@ -114,7 +114,8 @@
       "artist": "Lan Nguyen",
       "starting_bid": 500000,
       "description": "Chalk Pastel",
-      "image_url": "#VALUE!"
+      "image_url": "https://lh3.googleusercontent.com/d/1UD8K8wfekY5pY4H8lLUhQCwTFXjBtW6L",
+      "google_drive_url": "https://drive.google.com/file/d/1UD8K8wfekY5pY4H8lLUhQCwTFXjBtW6L/view?usp=drive_link"
     },
     {
       "id": "a9",
@@ -122,7 +123,8 @@
       "artist": "Nhat Ha",
       "starting_bid": 1000000,
       "description": "Acrylic",
-      "image_url": "#VALUE!"
+      "image_url": "https://lh3.googleusercontent.com/d/1ArFZZriS0lRUvVhwWEkqu6S6dCdugRWA",
+      "google_drive_url": "https://drive.google.com/file/d/1ArFZZriS0lRUvVhwWEkqu6S6dCdugRWA/view?usp=drive_link"
     },
     {
       "id": "gs1",
@@ -168,6 +170,15 @@
       "description": "Digital photography",
       "image_url": "https://lh3.googleusercontent.com/d/1lGkhVfHv3_A3tSS-maElzkCOpBiQ30ql",
       "google_drive_url": "https://drive.google.com/file/d/1lGkhVfHv3_A3tSS-maElzkCOpBiQ30ql/view?usp=sharing"
+    },
+    {
+      "id": "w1",
+      "name": "Manga",
+      "artist": "Nguyen Van An",
+      "starting_bid": 500000,
+      "description": "Water Color",
+      "image_url": "https://lh3.googleusercontent.com/d/1_MFZ3iwKlC7yPI48yvyV38U3FGciAonT",
+      "google_drive_url": "https://drive.google.com/file/d/1_MFZ3iwKlC7yPI48yvyV38U3FGciAonT/view?usp=drive_link"
     }
   ]
 }
