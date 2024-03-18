@@ -179,6 +179,15 @@
       "description": "Water Color",
       "image_url": "https://lh3.googleusercontent.com/d/1_MFZ3iwKlC7yPI48yvyV38U3FGciAonT",
       "google_drive_url": "https://drive.google.com/file/d/1_MFZ3iwKlC7yPI48yvyV38U3FGciAonT/view?usp=drive_link"
+    },
+    {
+      "id": "a10",
+      "name": "Sunset",
+      "artist": "Khanh Le",
+      "starting_bid": 500000,
+      "description": "Acrylic",
+      "image_url": "https://lh3.googleusercontent.com/d/1GneDpacC7Mt8v0bwwZUdLztxzhm1jRvu",
+      "google_drive_url": "https://drive.google.com/file/d/1GneDpacC7Mt8v0bwwZUdLztxzhm1jRvu/view?usp=drive_link"
     }
   ]
 }
