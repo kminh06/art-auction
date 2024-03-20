@@ -24,7 +24,7 @@ export default function Header({ isSignedIn, user, live }) {
       <div className='flex items-center gap-2 justify-center'>
         <div className='font-semibold text-red-500 text-lg'>
           {isClient && live ? (
-            <Countdown date={'2024-03-20T12:00:00'} />
+            <Countdown date={'2024-04-05T12:00:00'} />
           ) : (
             '00:00:00:00'
           )}
